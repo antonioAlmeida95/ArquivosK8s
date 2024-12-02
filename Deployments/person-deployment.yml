@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: person-dotnet-api
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: person-dotnet-api
+  template:
+    metadata:
+      labels:
+        app: person-dotnet-api
+    spec:
+      containers:
+      - name: person-dotnet-api
+        image: lucasstark95/person:latest
+        ports:
+        - containerPort: 8080
